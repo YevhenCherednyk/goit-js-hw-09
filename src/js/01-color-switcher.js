@@ -7,22 +7,27 @@ const refs = {
 };
 
 let timerId = null;
-refs.stopButtonRef.disabled = true;
+// refs.stopButtonRef.disabled = true;
+refs.stopButtonRef.setAttribute('disabled', true);
 
 refs.startButtonRef.addEventListener('click', onStartClick);
 refs.stopButtonRef.addEventListener('click', onStopClick);
 
 function onStartClick(ev) {
-  refs.startButtonRef.disabled = true;
-  refs.stopButtonRef.disabled = false;
+  // refs.startButtonRef.disabled = true;
+  // refs.stopButtonRef.disabled = false;
+  refs.startButtonRef.setAttribute('disabled', true);
+  refs.stopButtonRef.removeAttribute('disabled');
   timerId = setInterval(() => {
     refs.bodyRef.style.backgroundColor = getRandomHexColor();
   }, CHANGE_COLOR_DELAY);
 }
 
 function onStopClick(ev) {
-  refs.startButtonRef.disabled = false;
-  refs.stopButtonRef.disabled = true;
+  // refs.startButtonRef.disabled = false;
+  // refs.stopButtonRef.disabled = true;
+  refs.startButtonRef.removeAttribute('disabled');
+  refs.stopButtonRef.setAttribute('disabled', true);
   clearInterval(timerId);
 }
 
