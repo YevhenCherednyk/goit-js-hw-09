@@ -55,8 +55,6 @@ function timeCounter(evt) {
   if (deltaTime <= 0) {
     clearInterval(intervalId);
     Notiflix.Notify.success('End of countdown');
-    refs.startBtnRef.removeAttribute('disabled');
-    refs.inputRef.removeAttribute('disabled');
     return;
   }
 
