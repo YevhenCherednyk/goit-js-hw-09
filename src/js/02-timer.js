@@ -32,11 +32,10 @@ const options = {
       refs.startBtnRef.setAttribute('disabled', true);
     }
     refs.startBtnRef.removeAttribute('disabled');
-    endTime = selectedDates[0];
   },
 };
 
-flatpickr(refs.inputRef, options);
+const calendar = flatpickr(refs.inputRef, options);
 
 refs.startBtnRef.addEventListener('click', onStartBtnClick);
 
@@ -50,7 +49,7 @@ function onStartBtnClick(evt) {
 }
 
 function timeCounter(evt) {
-  const deltaTime = endTime - new Date();
+  const deltaTime = calendar.selectedDates[0] - new Date();
 
   if (deltaTime <= 0) {
     clearInterval(intervalId);
